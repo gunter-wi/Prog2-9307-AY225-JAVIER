@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 package PrelimLabwork1;
+=======
+package AttendanceProject;
+>>>>>>> origin/main
 import javax.swing.*;
 import java.awt.*;
 import java.time.LocalDateTime;
