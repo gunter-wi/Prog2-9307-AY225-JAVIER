@@ -1,4 +1,4 @@
-package MidtermLab1;
+
 
 public class DataRecord {
 
