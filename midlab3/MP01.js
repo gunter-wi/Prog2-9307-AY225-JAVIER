@@ -1,10 +1,22 @@
-const fs = require('fs');
+const fs = require("fs");
 
-const filePath = 'results.csv';
+const filePath = "Sample_Data-Prog-2-csv.csv";
+let recordCount = 0;
 
-fs.readFile(filePath, 'utf8', (err, data) => {
-    if (err) return console.error('Error reading file:', err);
+try {
+    const data = fs.readFileSync(filePath, "utf8");
+    const lines = data.split("\n");
 
-    const lines = data.split('\n').filter(line => line.trim() && !line.startsWith('Candidate'));
-    console.log('Total number of records:', lines.length);
-});
+    for (let line of lines) {
+        line = line.trim();
+
+        if (line.startsWith('"')) { // valid candidate row
+            recordCount++;
+        }
+    }
+
+    console.log("Total number of records:", recordCount);
+
+} catch (err) {
+    console.log("Error reading file:", err.message);
+}
